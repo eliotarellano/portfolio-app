@@ -1,7 +1,5 @@
 # Portfolio Project
 
-One Paragraph of project description goes here
-
 ### Installing
 
 Runs the app in the development mode.
