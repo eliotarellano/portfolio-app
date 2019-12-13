@@ -1,4 +1,4 @@
-# Portfolio Project
+# Portfolio App
 
 ### Installing
 
