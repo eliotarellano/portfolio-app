@@ -1,6 +1,6 @@
 # Portfolio App
 
-<img src="/src/assets/images/eliotlogo100v2.png" alt="Logo" height="80">
+<img src="/src/assets/images/kotodama100.png" alt="Logo" height="80">
 
 ### Installing
 
