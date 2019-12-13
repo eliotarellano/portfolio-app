@@ -21,6 +21,6 @@ npm start
 
 ## Author
 
-* **Eliot Arellano** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Eliot Arellano** - *Developer*
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
