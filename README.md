@@ -18,12 +18,12 @@ You will also see any lint errors in the console.
 npm start
 ```
 
-## Built With
+### Built With
 
 * [reactstrap](https://reactstrap.github.io/)
 * [react-fontawesome](https://github.com/FortAwesome/react-fontawesome)
 
-## Author
+### Author
 
 * **Eliot Arellano** - **Front-end** *Developer*
 
