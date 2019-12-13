@@ -21,6 +21,6 @@ npm start
 
 ## Author
 
-* **Eliot Arellano** - ** *Front-end* ** *Developer*
+* **Eliot Arellano** - **Front-end** *Developer*
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
