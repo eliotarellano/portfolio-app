@@ -1,5 +1,7 @@
 # Portfolio App
 
+<img src="/src/assets/images/eliotlogo100v2.png" alt="Logo" width="80" height="80">
+
 ### Installing
 
 Runs the app in the development mode.
