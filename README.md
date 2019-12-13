@@ -1,5 +1,5 @@
 # Portfolio App
-
+<br />
 <p align="center">
   <a href="https://github.com/eliotarellano/portfolio-app">
     <img src="/src/assets/images/kotodama100.png" alt="Logo" width="377" height="80">
