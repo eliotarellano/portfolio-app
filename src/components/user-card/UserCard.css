@@ -1,0 +1,133 @@
+.user-card {
+  width: 100;
+  max-width: 100%;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  margin: 0px auto;
+  padding: 150px 10px;
+  height: 70vh;
+  margin-top: auto;
+  margin-bottom: auto;
+  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 2s; /* Firefox < 16 */
+  -ms-animation: fadein 2s; /* Internet Explorer */
+  -o-animation: fadein 2s; /* Opera < 12.1 */
+  animation: fadein 2s;
+}
+
+.user-card-image-wrapper {
+  width: 270px;
+  height: 270px;
+  padding: 30px;
+  margin: 0px auto;
+}
+
+.user-card-image {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  padding-right: 20px !important;
+}
+
+@media (max-width: 575px) {
+  .user-card {
+    width: 940px;
+    max-width: 100%;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0px auto;
+    padding: 50px 10px;
+    height: 80vh;
+  }
+
+  .user-card-image {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 187%;
+    object-fit: cover;
+    object-position: center center;
+    padding-right: 20px !important;
+  }
+}
+
+.user-card-info {
+  padding-left: 30px;
+  text-align: justify;
+}
+
+.user-card-h1 {
+  font-size: 30px;
+  font-weight: 400;
+  color: rgb(41, 41, 41);
+  margin-bottom: 20px;
+}
+
+.user-card-p {
+  color: rgb(41, 41, 41);
+    font-size: 15px;
+    line-height: 2;
+}
+
+.user-card-p-dev {
+  color: rgb(41, 41, 41);
+    font-size: 18px;
+    line-height: 2;
+}
+
+.user-card-p-item {
+  position: relative;
+  margin-right: 20px;
+  list-style: none;
+}
+
+.user-card-a {
+  color: rgb(41, 41, 41);
+  font-size: 30px;
+  display: block;
+  padding: 0.2em;
+}
+
+.user-card-a:hover {
+  color: rgb(41, 41, 41);
+}
+
+.user-card-a-tooltip {
+  background-color: #ffffff !important;
+}
+
+@keyframes fadein {
+  from { opacity: 0; transform: translate3d(0, 20%, 0);}
+  to   { opacity: 1s ease; transform: none;}
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from { opacity: 0; transform: translate3d(0, 20%, 0);}
+  to   { opacity: 1s ease; transform: none;}
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from { opacity: 0; transform: translate3d(0, 20%, 0);}
+  to   { opacity: 1s ease; transform: none;}
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from { opacity: 0; transform: translate3d(0, 20%, 0);}
+  to   { opacity: 1s ease; transform: none;}
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+  from { opacity: 0; transform: translate3d(0, 20%, 0);}
+  to   { opacity: 1s ease; transform: none;}
+}
