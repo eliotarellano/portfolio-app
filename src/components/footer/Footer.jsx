@@ -20,7 +20,10 @@ const Footer = (props) => {
             {/* custom-footer fixed-bottom */}
                 <Row>    
                     <Col xs="12" md="12" lg="12" className="mt-4">
-                        <span>C O P Y R I G H T &nbsp; © &nbsp; 2019 &nbsp; エリオット &nbsp; ( &nbsp; E L I O T &nbsp;  / / &nbsp; A R E L L A N O &nbsp; )</span>
+                        <span>C O P Y R I G H T &nbsp; © &nbsp; 2019</span>
+                    </Col>
+                    <Col xs="12" md="12" lg="12" className="">
+                        エリオット &nbsp; ( &nbsp; E L I O T &nbsp;  / / &nbsp; A R E L L A N O &nbsp; )    
                     </Col>
                     {/* <Col xs="12" md="12" lg="12" className="mt-1">
                         <img  

@@ -9,29 +9,23 @@
   height: 70vh;
   margin-top: auto;
   margin-bottom: auto;
-  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 2s; /* Firefox < 16 */
-  -ms-animation: fadein 2s; /* Internet Explorer */
-  -o-animation: fadein 2s; /* Opera < 12.1 */
-  animation: fadein 2s;
 }
 
 .user-card-image-wrapper {
-  width: 270px;
+  /* width: 270px;
   height: 270px;
   padding: 30px;
-  margin: 0px auto;
+  margin: 0px auto; */
 }
 
 .user-card-image {
-  position: absolute;
+  /* position: absolute;
   top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  left: 0px; */
+  width: 70%;
+  /* object-fit: cover;
   object-position: center center;
-  padding-right: 20px !important;
+  padding-right: 20px !important; */
 }
 
 @media (max-width: 575px) {
@@ -41,21 +35,33 @@
     display: flex;
     -webkit-box-align: center;
     align-items: center;
-    margin: 0px auto;
+    /* margin: 0px auto;
     padding: 50px 10px;
-    height: 80vh;
+    height: 80vh; */
+    height: 70vh;
   }
 
   .user-card-image {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 187%;
+    width: 70%;
     object-fit: cover;
     object-position: center center;
-    padding-right: 20px !important;
+    padding-right: 10px !important;
+    margin-top: 40px;
+    margin-bottom: 20px;
   }
+  .user-card-info { 
+    text-align: center !important;
+  }
+
+  .user-card-container-a {
+    width: 33.33333333%;
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+    text-align: center;
+    flex-wrap: none !important;
+  }
+
 }
 
 .user-card-info {
@@ -101,33 +107,4 @@
 
 .user-card-a-tooltip {
   background-color: #ffffff !important;
-}
-
-@keyframes fadein {
-  from { opacity: 0; transform: translate3d(0, 20%, 0);}
-  to   { opacity: 1s ease; transform: none;}
-}
-
-/* Firefox < 16 */
-@-moz-keyframes fadein {
-  from { opacity: 0; transform: translate3d(0, 20%, 0);}
-  to   { opacity: 1s ease; transform: none;}
-}
-
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes fadein {
-  from { opacity: 0; transform: translate3d(0, 20%, 0);}
-  to   { opacity: 1s ease; transform: none;}
-}
-
-/* Internet Explorer */
-@-ms-keyframes fadein {
-  from { opacity: 0; transform: translate3d(0, 20%, 0);}
-  to   { opacity: 1s ease; transform: none;}
-}
-
-/* Opera < 12.1 */
-@-o-keyframes fadein {
-  from { opacity: 0; transform: translate3d(0, 20%, 0);}
-  to   { opacity: 1s ease; transform: none;}
 }

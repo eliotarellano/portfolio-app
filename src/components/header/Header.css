@@ -3,6 +3,15 @@
  * @version v1.0.0
  */
 
+.header {
+  color: #182432 !important;
+  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 2s; /* Firefox < 16 */
+  -ms-animation: fadein 2s; /* Internet Explorer */
+  -o-animation: fadein 2s; /* Opera < 12.1 */
+  animation: fadein 2s;
+}
+
 .custom-navbar {
   background-color: #fff;
   border-bottom: 1px solid rgb(243, 243, 243);
@@ -10,5 +19,51 @@
 
 .active {
   font-weight: bold;
-  color: #ff304f !important;
+  color: #c26774 !important;
+}
+
+/* .header-logo{
+
+} */
+
+@media (max-width: 575px) {
+  .navbar-btn-collapse{
+    position: absolute;
+    float: right !important;
+    display: contents !important;
+    overflow-y: auto;
+    color: #c26774 !important;  
+  }
+  .nav {
+    display: contents !important;
+  }
+}
+
+@keyframes fadein {
+  from { opacity: 0; transform: translate3d(0, 20%, 0);}
+  to   { opacity: 1s ease; transform: none;}
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from { opacity: 0; transform: translate3d(0, 20%, 0);}
+  to   { opacity: 1s ease; transform: none;}
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from { opacity: 0; transform: translate3d(0, 20%, 0);}
+  to   { opacity: 1s ease; transform: none;}
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from { opacity: 0; transform: translate3d(0, 20%, 0);}
+  to   { opacity: 1s ease; transform: none;}
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+  from { opacity: 0; transform: translate3d(0, 20%, 0);}
+  to   { opacity: 1s ease; transform: none;}
 }

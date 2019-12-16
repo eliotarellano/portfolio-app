@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
 import UserCard from '../../components/user-card/UserCard';
+import './Home.css';
 import {
   Container,
   Row,

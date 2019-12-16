@@ -12,7 +12,7 @@ import {
   Button,
 } from 'reactstrap';
 import { NavLink as RRNavLink } from 'react-router-dom';
-import logo from '../../assets/images/eriottologo100.png'
+import logo from '../../assets/images/eriottologo.png'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
@@ -32,17 +32,19 @@ const Header = (props) => {
     <div className="header">
       <Navbar light expand="md" className="custom-navbar">
         <NavbarBrand className="pl-5" tag={RRNavLink} exact to="/">
-          <img  
-              alt=""
-              src={logo}
-              height="30"
-              className="mr-auto"
-          />
+          <a href="/">
+            <img  
+                alt=""
+                src={logo}
+                height="30"
+                className="mr-auto header-logo"
+            />
+          </a>
         </NavbarBrand>
-        <Button outline color="danger" onClick={toggle} tag={NavbarToggler}>
+        <Button outline color="danger" onClick={toggle} tag={NavbarToggler} className="navbar-btn-collapse">
           <FontAwesomeIcon icon={faBars} />
         </Button>
-        <Collapse isOpen={isOpen} navbar >
+        <Collapse isOpen={isOpen} navbar>
           <Nav navbar className="mr-auto navbar" />
           <NavbarText>
             <Nav className="pr-4">
