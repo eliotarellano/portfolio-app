@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/eliotarellano/portfolio-app">
-    <img src="/src/assets/images/eriottologo100.png" alt="Logo" width="350" height="50">
+    <img src="/src/assets/images/eriottologo.png" alt="Logo" width="399" height="50">
   </a>
 </p>
 
