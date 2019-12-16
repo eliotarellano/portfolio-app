@@ -6,15 +6,16 @@ import {
   Row,
   Col
 } from 'reactstrap';
+import LoginForm from '../../components/login-form/LoginForm';
 
-const Home = (props) => {
+const Login = (props) => {
   return (
     <div className="login">
       <Header />
         <Container>
           <Row>
             <Col>
-              Login
+              <LoginForm {...props} />
             </Col>
           </Row>
         </Container>
@@ -23,4 +24,4 @@ const Home = (props) => {
   );
 }
   
-export default Home;
+export default Login;

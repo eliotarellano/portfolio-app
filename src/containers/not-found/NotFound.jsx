@@ -6,6 +6,7 @@ import {
   Row,
   Col
 } from 'reactstrap';
+import NotFoundComp from '../../components/not-found/NotFound';
 
 const NotFound = (props) => {
     return (
@@ -13,8 +14,8 @@ const NotFound = (props) => {
         <Header />
           <Container>
             <Row>
-              <Col>
-                Not Found
+              <Col className="mt-4">
+                <NotFoundComp />
               </Col>
             </Row>
           </Container>

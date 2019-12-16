@@ -3,11 +3,11 @@ import { useSelector } from 'react-redux';
 import { Redirect, Route } from 'react-router-dom';
 
 export const PrivateRoute = ({ component: Component, ...rest}) => {
-    const isLogin = useSelector(store => store.auth.isLogin);
+    const isLogin = useSelector(store => store.login.isLogin);
     return (
         <Route
             {...rest}
-            render={props => 
+            render = {props => 
                 isLogin ? (
                     <Component {...props} />
                 ) : (

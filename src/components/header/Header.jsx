@@ -12,7 +12,7 @@ import {
   Button,
 } from 'reactstrap';
 import { NavLink as RRNavLink } from 'react-router-dom';
-import logo from '../../assets/images/eriottologo.png'
+import logo from '../../assets/images/eriottologo.png';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
@@ -54,7 +54,7 @@ const Header = (props) => {
                   exact to="/"
                   activeClassName="active"
                 >
-                  {window.location.pathname === '/' ? '/ /' : ''}&nbsp; H O M E 
+                  {window.location.pathname === '/' ? '/ /' : '| |'}&nbsp; H O M E 
                 </NavLink>
               </NavItem>
               <NavItem className="m-3">
@@ -64,7 +64,7 @@ const Header = (props) => {
                   activeClassName="active"
                   
                 >
-                  {window.location.pathname === '/about' ? '/ /' : ''}&nbsp; A B O U T
+                  {window.location.pathname === '/about' ? '/ /' : '| |'}&nbsp; A B O U T
                 </NavLink>
               </NavItem>
               <NavItem className="m-3">
@@ -73,7 +73,7 @@ const Header = (props) => {
                   to="/contact"
                   activeClassName="active"
                 >
-                  {window.location.pathname === '/contact' ? '/ /' : ''}&nbsp; C O N T A C T
+                  {window.location.pathname === '/contact' ? '/ /' : '| |'}&nbsp; C O N T A C T
                 </NavLink>
               </NavItem>
               <NavItem className="m-3">
@@ -82,7 +82,7 @@ const Header = (props) => {
                   to="/login"
                   activeClassName="active"
                 >
-                  {window.location.pathname === '/login' ? '/ /' : ''}&nbsp; L O G I N
+                  {window.location.pathname === '/login' ? '/ /' : '| |'}&nbsp; L O G I N
                 </NavLink>
               </NavItem>
             </Nav>
