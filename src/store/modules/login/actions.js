@@ -27,19 +27,18 @@ export const logoutActionCreator = () => ({
     payload: null,
 })
 
-export const loginAsyncActionCreator = (data) => {
+export const loginAsyncActionCreator = (email, password) => {
     return (dispatch, getStore) => {
         dispatch(loginStartActionCreator());
-        login(data)
-            .catch(error => {
-                dispatch(loginNokActionCreator('Error:', error))
-            })
-            .then(response => {
-                if (response.message !== 'success') {
-                    dispatch(loginNokActionCreator('Error: generico'))
-                } else {
-                    dispatch(loginOkActionCreator(response.data))
-                }
-            });
+        login({email, password})
+        .catch(err => {
+            dispatch(loginNokActionCreator('Error:', err));
+        }).then(response => {
+            if (response.message !== 'success') {
+                dispatch(loginNokActionCreator('Error: generico'))
+            } else {
+                dispatch(loginOkActionCreator(response.data))
+            }
+        });
     }
 }

@@ -12,6 +12,7 @@ import {
     InputGroup,
     InputGroupAddon,
     InputGroupText,
+    Alert
 } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faLock } from '@fortawesome/free-solid-svg-icons'
@@ -22,13 +23,17 @@ const LoginForm = (props) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [visible, setVisible] = useState(false);
+
+    const onDismiss = () => setVisible(false);
 
     const handlerSubmit = (event) => {
         event.preventDefault();
-        dispatch(loginAsyncActionCreator({
-            email,
-            password,
-        }))
+        if ( email && password) {
+            dispatch(loginAsyncActionCreator(email, password))
+        } else {
+            setVisible(true);
+        }
     }
 
     useEffect(() => {
@@ -40,8 +45,8 @@ const LoginForm = (props) => {
     return (
         <div className="login-form">
             <Container className="mt-4">
-                <h2>S I N G &nbsp; I N</h2>
-                <Form className="mt-4" onSubmit={handlerSubmit}>
+                <h4 className="text-center py-4">S I G N &nbsp; I N</h4>
+                <Form className="mt-4">
                     <Col xs="12" md={{ size: 4, offset: 4 }}>
                         <Label>U S E R </Label>
                         <InputGroup>
@@ -54,7 +59,7 @@ const LoginForm = (props) => {
                                 type="email"
                                 name="email"
                                 value={email}
-                                placeholder="username"
+                                placeholder="email"
                                 onChange={({ target }) => setEmail(target.value) }
                             />
                         </InputGroup>
@@ -75,8 +80,20 @@ const LoginForm = (props) => {
                             />
                         </InputGroup>
                     </Col>
-                    <Col className="mt-4">
-                        <Button>Login</Button>
+                    <Col className="text-center py-4 mt-2">
+                        <Button
+                            type="button"
+                            color="danger"
+                            className="transition-3d-hover"
+                            onClick={handlerSubmit}
+                        >
+                            Login
+                        </Button>
+                    </Col>
+                    <Col className="text-center">
+                        <Alert color="danger" isOpen={visible} toggle={onDismiss}>
+                            Invalid fields.
+                        </Alert>
                     </Col>
                 </Form>
             </Container>

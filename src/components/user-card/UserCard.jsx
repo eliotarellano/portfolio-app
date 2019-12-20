@@ -1,7 +1,16 @@
 import React, { useState } from 'react';
 import './UserCard.css';
-import { Container, Row, Col, Nav, NavItem, NavLink, Tooltip } from 'reactstrap';
-import photo from '../../assets/images/eriottoimgcrsh.png';
+import { 
+    Container,
+    Row,
+    Col,
+    Nav,
+    NavItem,
+    NavLink,
+    Tooltip,
+} from 'reactstrap';
+import photo from '../../assets/images/eriottoimg.png';
+import TypedTitle from '../typed-title/TypedTitle';
 
 const UserCard = (props) => {
 
@@ -16,12 +25,12 @@ const UserCard = (props) => {
     return (
         <div className="user-card">
             <Container>
-                <Row>
+                <Row className="text-center">
                     <Col sm="12" md="6" className="user-card-image-wrapper">
                         <img src={photo} className="user-card-image" alt="author"/>
                     </Col>
                     <Col sm="12" md="6" className="user-card-info">
-                        <h1 className="user-card-h1">I'm <b>Eliot Arellano</b></h1>
+                        <TypedTitle />
                         <p className="user-card-p-dev">𝙁𝙧𝙤𝙣𝙩-𝙚𝙣𝙙&nbsp; 𝘋𝘦𝘷𝘦𝘭𝘰𝘱𝘦𝘳.</p>
                         <p className="user-card-p">Responsible, dynamic and creative professional, with team work skills and initiative to solve problems efficiently.</p>
                         <br/>

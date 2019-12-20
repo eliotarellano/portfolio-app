@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import './Header.css';
 import {
   Collapse,
@@ -15,31 +16,29 @@ import { NavLink as RRNavLink } from 'react-router-dom';
 import logo from '../../assets/images/eriottologo.png';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { logoutActionCreator } from '../../store/modules/login/actions';
 
-/**
- * Navbar
- * @version v1.0.0
- * 
- * @param {*} props 
- */
 const Header = (props) => {
+    const dispatch = useDispatch();
+    const isLogin = useSelector(store => store.login.isLogin);
+    const [isOpen, setIsOpen] = useState(false);
 
-  const [isOpen, setIsOpen] = useState(false);
+    const toggle = () => setIsOpen(!isOpen);
 
-  const toggle = () => setIsOpen(!isOpen);
+    const handlerLogOut = () => {
+        dispatch(logoutActionCreator());
+    }
 
   return (
     <div className="header">
       <Navbar light expand="md" className="custom-navbar">
         <NavbarBrand className="pl-5" tag={RRNavLink} exact to="/">
-          <a href="/">
-            <img  
-                alt=""
-                src={logo}
-                height="30"
-                className="mr-auto header-logo"
-            />
-          </a>
+          <img  
+              alt=""
+              src={logo}
+              height="30"
+              className="mr-auto header-logo"
+          />
         </NavbarBrand>
         <Button outline color="danger" onClick={toggle} tag={NavbarToggler} className="navbar-btn-collapse">
           <FontAwesomeIcon icon={faBars} />
@@ -48,15 +47,21 @@ const Header = (props) => {
           <Nav navbar className="mr-auto navbar" />
           <NavbarText>
             <Nav className="pr-4">
-              <NavItem className="m-3">
-                <NavLink 
-                  tag={RRNavLink}
-                  exact to="/"
-                  activeClassName="active"
-                >
-                  {window.location.pathname === '/' ? '/ /' : '| |'}&nbsp; H O M E 
-                </NavLink>
-              </NavItem>
+            {!isLogin 
+              ?
+                <NavItem className="m-3">
+                  <NavLink 
+                    tag={RRNavLink}
+                    exact to="/"
+                    activeClassName="active"
+                  >
+                    {window.location.pathname === '/' ? '/ /' : '| |'}&nbsp; H O M E 
+                  </NavLink>
+                </NavItem> 
+              : ''
+            }
+            {!isLogin 
+              ?
               <NavItem className="m-3">
                 <NavLink 
                   tag={RRNavLink}
@@ -67,24 +72,57 @@ const Header = (props) => {
                   {window.location.pathname === '/about' ? '/ /' : '| |'}&nbsp; A B O U T
                 </NavLink>
               </NavItem>
-              <NavItem className="m-3">
-                <NavLink 
-                  tag={RRNavLink}
-                  to="/contact"
-                  activeClassName="active"
-                >
-                  {window.location.pathname === '/contact' ? '/ /' : '| |'}&nbsp; C O N T A C T
-                </NavLink>
-              </NavItem>
-              <NavItem className="m-3">
-                <NavLink 
-                  tag={RRNavLink}
-                  to="/login"
-                  activeClassName="active"
-                >
-                  {window.location.pathname === '/login' ? '/ /' : '| |'}&nbsp; L O G I N
-                </NavLink>
-              </NavItem>
+              : ''
+            }
+            {!isLogin 
+              ?
+                <NavItem className="m-3">
+                  <NavLink 
+                    tag={RRNavLink}
+                    to="/contact"
+                    activeClassName="active"
+                  >
+                    {window.location.pathname === '/contact' ? '/ /' : '| |'}&nbsp; C O N T A C T
+                  </NavLink>
+                </NavItem>
+              : ''
+            }
+            {isLogin 
+              ?
+                <NavItem className="m-3">
+                  <NavLink 
+                    tag={RRNavLink}
+                    to="/private/skills"
+                    activeClassName="active"
+                  >
+                    {window.location.pathname === '/private/skills' ? '/ /' : '| |'}&nbsp; S K I L L S
+                  </NavLink>
+                </NavItem>
+              : ''
+            }
+              {isLogin 
+                ?
+                  <NavItem className="m-3">
+                    <NavLink 
+                      tag={RRNavLink}
+                      to="/login"
+                      activeClassName="active"
+                      onClick={handlerLogOut}
+                    >
+                      {window.location.pathname === '/login' ? '/ /' : '| |'}&nbsp; L O G O U T
+                    </NavLink>
+                  </NavItem>
+                :
+                  <NavItem className="m-3">
+                    <NavLink 
+                      tag={RRNavLink}
+                      to="/login"
+                      activeClassName="active"
+                    >
+                      {window.location.pathname === '/login' ? '/ /' : '| |'}&nbsp; L O G I N 
+                    </NavLink>
+                  </NavItem>
+              }
             </Nav>
           </NavbarText>
         </Collapse>

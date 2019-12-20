@@ -8,6 +8,7 @@ import Login from './containers/login/Login';
 import About from './containers/about/About';
 import Contact from './containers/contact/Contact';
 import NotFound from './containers/not-found/NotFound';
+import Skill from './containers/skill/Skill';
 import { PrivateRoute } from './components/private-route/PrivateRoute';
 import store from './store';
 
@@ -23,6 +24,7 @@ const App = () => {
             <Route path="/contact" component={Contact} />
             <Route path="/login" component={Login} />
             <PrivateRoute exact path="/private/home" component={HomePrivate} />
+            <PrivateRoute path="/private/skills" component={Skill} />
             <Route component={NotFound} />
           </Switch>
         </Router>

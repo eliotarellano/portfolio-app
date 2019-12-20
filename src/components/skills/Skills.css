@@ -1,0 +1,34 @@
+.skills {
+    width: 100;
+    max-width: 100%;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0px auto;
+    padding: 10px;
+    height: 100vh;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+}
+
+.progress-bar-custom {
+    -webkit-animation: expandWidth ease-in 4s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: expandWidth ease-in 4s; /* Firefox < 16 */
+    -ms-animation: expandWidth ease-in 4s; /* Internet Explorer */
+    -o-animation: expandWidth ease-in 4s; /* Opera < 12.1 */
+    animation: expandWidth ease-in 4s;
+}
+
+@keyframes expandWidth {
+    0% { width: 0; }
+    100% { width: 100; }
+ }
+
+.skills-animation-container {
+    width: 100%;
+}
+
+.progress-bar {
+    background-color: #c26774 !important;
+  }

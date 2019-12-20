@@ -1,5 +1,4 @@
 .app {
-  text-align: center;
   color: #182432 !important;
 }
 
@@ -29,6 +28,14 @@
   color: #61dafb;
 }
 
+.bs-custom-modal-header {
+  align-items: center !important;
+}
+
+.fa-custom-icon {
+  color: #c26774 !important; 
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -37,3 +44,4 @@
     transform: rotate(360deg);
   }
 }
+

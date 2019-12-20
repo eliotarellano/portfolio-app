@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
 import {
@@ -8,14 +7,8 @@ import {
   Col,
   Button
 } from 'reactstrap';
-import { logoutActionCreator } from '../../store/modules/login/actions';
 
 const HomePrivate = (props) => {
-  const dispatch = useDispatch();
-
-  const handlerLogOut = () => {
-    dispatch(logoutActionCreator());
-  }
 
   return (
     <div className="home-private">
@@ -23,7 +16,7 @@ const HomePrivate = (props) => {
         <Container>
           <Row>
             <Col>
-              <Button onClick={handlerLogOut}>Cerrar Sesión</Button>
+              HOME PRIVATE
             </Col>
           </Row>
         </Container>
