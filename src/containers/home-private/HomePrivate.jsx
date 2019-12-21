@@ -1,11 +1,11 @@
 import React from 'react';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
+import DbCards from '../../components/db-cards/DbCards';
 import {
   Container,
   Row,
   Col,
-  Button
 } from 'reactstrap';
 
 const HomePrivate = (props) => {
@@ -16,7 +16,7 @@ const HomePrivate = (props) => {
         <Container>
           <Row>
             <Col>
-              HOME PRIVATE
+              <DbCards />
             </Col>
           </Row>
         </Container>

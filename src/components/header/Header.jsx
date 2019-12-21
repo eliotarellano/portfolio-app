@@ -15,7 +15,7 @@ import {
 import { NavLink as RRNavLink } from 'react-router-dom';
 import logo from '../../assets/images/eriottologo.png';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { logoutActionCreator } from '../../store/modules/login/actions';
 
 const Header = (props) => {
@@ -64,7 +64,17 @@ const Header = (props) => {
                                 {window.location.pathname === '/' ? '/ /' : '| |'}&nbsp; H O M E 
                             </NavLink>
                         </NavItem> 
-                    : ''
+                    :
+                        <NavItem className="m-3" onClick={handlerOnClick}>
+                            <NavLink 
+                                tag={RRNavLink}
+                                exact to="/private/home"
+                                activeClassName="active"
+                                disabled={window.location.pathname === '/private/home' ? true : false}
+                            >
+                                {window.location.pathname === '/private/home' ? '/ /' : '| |'}&nbsp; H O M E 
+                            </NavLink>
+                        </NavItem> 
                     }
                     {!isLogin 
                     ?
@@ -117,7 +127,7 @@ const Header = (props) => {
                                 activeClassName="active"
                                 onClick={handlerLogOut}
                             >
-                            {window.location.pathname === '/login' ? '/ /' : '| |'}&nbsp; L O G O U T
+                            <FontAwesomeIcon icon={faSignOutAlt} />
                             </NavLink>
                         </NavItem>
                         :

@@ -4,14 +4,14 @@ import './SkillList.css';
 import DataTable from 'react-data-table-component';
 import { Button, Col, Container } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { deleteSkillById } from '../../store/modules/skill/action';
 import SkillListEdit from '../skill-list-edit/SkillListEdit';
 import SkillListAdd from '../skill-list-add/SkillListAdd';
 
 const SkillList = (props) => {
     const dispatch = useDispatch();
-    const skillModule = useSelector(store => store.skills.data)
+    const skillModule = useSelector(store => store.skills.data);
 
     const handlerOnClick = (id) => {
         return (event) => {
