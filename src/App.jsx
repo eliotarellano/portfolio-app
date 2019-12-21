@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
@@ -13,6 +13,13 @@ import { PrivateRoute } from './components/private-route/PrivateRoute';
 import store from './store';
 
 const App = () => {
+
+  useEffect(() => {
+    setTimeout((
+      window.scrollTo(0, 0)
+    ), 9000);
+  });
+
   return (
     <div className="app">
       <Provider store={store}>      

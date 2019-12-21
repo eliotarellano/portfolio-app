@@ -13,16 +13,16 @@ import {
 const Home = (props) => {
   return (
     <div className="home">
-      <Header />
-      <Container>
-      <Row>
-        <Col>
-          <UserCard />
-          <Skills />
-        </Col>
-      </Row>
-      </Container>
-      <Footer />
+        <Header />
+            <Container className="home-custom">
+                <Row>
+                <Col>
+                    <UserCard />
+                    <Skills />
+                </Col>
+                </Row>
+            </Container>
+        <Footer />
     </div>
   );
 }

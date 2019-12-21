@@ -7,18 +7,21 @@ import {
   Col
 } from 'reactstrap';
 import LoginForm from '../../components/login-form/LoginForm';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 const Login = (props) => {
   return (
     <div className="login">
       <Header />
-        <Container>
-          <Row>
-            <Col>
-              <LoginForm {...props} />
-            </Col>
-          </Row>
-        </Container>
+        <ScrollAnimation className="skills-animation-container" animateIn="fadeIn">   
+          <Container>
+            <Row>
+              <Col>
+                <LoginForm {...props} />
+              </Col>
+            </Row>
+          </Container>
+        </ScrollAnimation>
       <Footer />
     </div>
   );

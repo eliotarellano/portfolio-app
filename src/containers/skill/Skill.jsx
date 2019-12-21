@@ -8,18 +8,21 @@ import {
     Row,
     Col
   } from 'reactstrap';
+  import ScrollAnimation from 'react-animate-on-scroll';
 
 const Skills = (props) => {
     return (
         <div className="skill-list">
             <Header />
-            <Container>
-                <Row>
-                    <Col>
-                        <SkillList />
-                    </Col>
-                </Row>
-            </Container>
+            <ScrollAnimation className="skills-animation-container" animateIn="fadeIn">
+                <Container>
+                    <Row>
+                        <Col>
+                            <SkillList />
+                        </Col>
+                    </Row>
+                </Container>
+            </ScrollAnimation>
             <Footer />
         </div>
     )
