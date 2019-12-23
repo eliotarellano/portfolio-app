@@ -16,8 +16,10 @@ const Home = (props) => {
         <Header />
             <Container className="home-custom">
                 <Row>
-                <Col>
+                <Col md="12" sm="12" className="custom-col-home-card">
                     <UserCard />
+                </Col>
+                <Col md="12" sm="12" className="custom-col-home-skills mt-2 m-b2">
                     <Skills />
                 </Col>
                 </Row>

@@ -1,15 +1,5 @@
 .skills {
-    width: 100;
-    max-width: 100%;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    margin: 0px auto;
-    padding: 10px;
-    height: 100vh;
-    margin-top: auto;
-    margin-bottom: auto;
-    text-align: center;
+
 }
 
 .progress-bar-custom {

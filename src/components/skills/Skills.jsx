@@ -24,35 +24,35 @@ const Skills = (props) => {
 
     return (
         <div className="skills mt-4 mb-4">
-        <ScrollAnimation className="skills-animation-container" animateIn="fadeIn">        
-            <Container>
-                <Row> 
-                    <Col md={{size: 8, offset: 2}}>
-                        <h4 className="py-4">S K I L L S</h4>
-                        {skillModule.data.map(skill => (
-                            <div key={skill.id}>
-                                <div className="form-inline mt-4">
-                                <Col md="6" xs="12">
-                                    <span className="float-md-left">{skill.name}</span>
-                                </Col>
-                                <Col md="6" xs="12">
-                                    <span className="float-md-right">{skill.percentage} %</span>
-                                </Col>
+            <ScrollAnimation className="skills-animation-container" animateIn="fadeIn">        
+                <Container>
+                    <Row> 
+                        <Col md={{size: 8, offset: 2}}>
+                            <h4 className="py-4">S K I L L S</h4>
+                            {skillModule.data.map(skill => (
+                                <div key={skill.id}>
+                                    <div className="form-inline mt-4">
+                                    <Col md="6" xs="12">
+                                        <span className="float-md-left">{skill.name}</span>
+                                    </Col>
+                                    <Col md="6" xs="12">
+                                        <span className="float-md-right">{skill.percentage} %</span>
+                                    </Col>
+                                    </div>
+                                    <Progress
+                                        barClassName="progress-bar-custom"
+                                        className="mt-1"
+                                        value={skill.percentage}
+                                    />
                                 </div>
-                                <Progress
-                                    barClassName="progress-bar-custom"
-                                    className="mt-1"
-                                    value={skill.percentage}
-                                />
-                            </div>
-                        ))}
-                        <Col md="12" className="mt-5">
-                            <FontAwesomeIcon className="fa-custom-icon" icon={faCode} size="2x"/>
+                            ))}
+                            <Col md="12" className="mt-5">
+                                <FontAwesomeIcon className="fa-custom-icon" icon={faCode} size="2x"/>
+                            </Col>
                         </Col>
-                    </Col>
-                </Row>
-            </Container>
-        </ScrollAnimation>
+                    </Row>
+                </Container>
+            </ScrollAnimation>
         </div>
     )
 }
