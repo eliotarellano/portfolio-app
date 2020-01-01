@@ -1,4 +1,5 @@
 import React from 'react';
+import './ContactCards.css';
 import {
     Container,
     Col,
@@ -26,7 +27,7 @@ const Contact = (props) => {
                             </CardTitle>
                         </Card>
                         <Col className="mt-4 text-center">
-                            <span>+56 9 6239 9504</span>
+                            <a className="custom-a" href="tel:+56962399504">+56 9 6239 9504</a>
                         </Col>
                     </Col>
                     <Col sm="6" md={{size: 3, offset: 2}} className=" mt-2 mb-2 mt-sm-2 mb-sm-0">
@@ -36,7 +37,7 @@ const Contact = (props) => {
                             </CardTitle>
                         </Card>
                         <Col className="mt-4 text-center">
-                            <span>eliot.arellano.94@gmail.com</span>
+                            <a className="custom-a" href="mailto:eliot.arellano.94@gmail.com">eliot.arellano.94@gmail.com</a>
                         </Col>
                     </Col>
                 </Row>

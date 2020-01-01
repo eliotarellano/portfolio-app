@@ -9,7 +9,7 @@ import {
 } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCode } from '@fortawesome/free-solid-svg-icons';
-import { findAllSkills } from '../../store/modules/skill/action';
+import { findDataAsyncActionCreator } from '../../store/modules/skill/action';
 import ScrollAnimation from 'react-animate-on-scroll';
 
 
@@ -19,7 +19,7 @@ const Skills = (props) => {
     const skillModule = useSelector(store => store.skills);
 
     useEffect(() => {
-        dispatch(findAllSkills());
+        dispatch(findDataAsyncActionCreator());
     }, []);
 
     return (

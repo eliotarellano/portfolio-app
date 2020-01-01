@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { useDispatch, batch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import './SkillListAdd.css';
 import {
     Col,
@@ -8,24 +9,34 @@ import {
 } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faCode, faPercentage } from '@fortawesome/free-solid-svg-icons'
-import { increaseSkillCounter, addSkill } from '../../store/modules/skill/action';
+import { findDataAsyncActionCreator, addSkillAsyncActionCreator } from '../../store/modules/skill/action';
 
-const SkillListAdd = () => {
+
+const SkillListAdd = (props) => {
     const dispatch = useDispatch();
+    const skillModule = useSelector(store => store.skills.data);
+
+    useEffect(() => {
+        dispatch(findDataAsyncActionCreator());
+    }, []);
 
     const [name, setName] = useState('');
     const [percentage, setPercentage] = useState('');
 
     const handleOnClick = () => {
         if (name && percentage) {
-            const data = {
+            const data = skillModule;
+            const id = skillModule.length;
+            const skill = {
+                id,
                 name,
                 percentage,
             }
-            batch(() => {
-                dispatch(increaseSkillCounter());
-                dispatch(addSkill(data))
-            })
+            const nData = data.concat(skill)
+            const skillObj = {
+                description: JSON.stringify(nData),
+            }
+            dispatch(addSkillAsyncActionCreator(skillObj))
             setName('');
             setPercentage('');
         }

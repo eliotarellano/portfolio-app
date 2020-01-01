@@ -1,25 +1,29 @@
 import React from 'react';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
+import AboutCard from '../../components/about-card/AboutCard';
 import {
   Container,
   Row,
   Col
 } from 'reactstrap';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 const About = (props) => {
   return (
-    <div className="about">
-      <Header />
-        <Container>
-          <Row>
-            <Col>
-              About
-            </Col>
-          </Row>
-        </Container>
-      <Footer />
-    </div>
+        <div className="about">
+            <Header />
+            <ScrollAnimation className="skills-animation-container" animateIn="fadeIn">  
+                <Container>
+                    <Row>
+                        <Col>
+                            <AboutCard />
+                        </Col>
+                    </Row>
+                </Container>
+            </ScrollAnimation>
+            <Footer />
+        </div>
   );
 }
   

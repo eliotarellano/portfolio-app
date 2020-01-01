@@ -1,4 +1,4 @@
-import { getAllPosts } from '../../../client/post.client';
+import { getAllData } from '../../../client/post.client';
 
 import {
     POSTS_FIND_ALL_START,
@@ -24,7 +24,7 @@ const findAllPostsNokActionCreator = (errorMessage) => ({
 export const findPostsAsyncActionCreator = () => {
     return (dispatch, getStore) => {
         dispatch(findAllPostsActionCreator());
-        getAllPosts()
+        getAllData()
         .catch(err => {
             dispatch(findAllPostsNokActionCreator('Error:', err));
         }).then(response => {

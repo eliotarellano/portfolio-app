@@ -1,13 +1,22 @@
-import axios from 'axios';
 import { API_HOST } from './config';
 
- const MODULE = 'skill';
+const MODULE = 'post';
 
 export const getAllSkills = () => {
-    return new Promise((resolve, reject) => {
-        axios.get(`${API_HOST}/api/${MODULE}`, {
-        }).then(data => {
-            resolve(data.data);
-        }).catch(error => reject(error.message));
-    })
+    return fetch(`${API_HOST}/api/${MODULE}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(res => res.json())
+}
+
+export const addSkill = (skill) => {
+    return fetch(`${API_HOST}/api/${MODULE}/1`, {
+        method: 'PATCH',
+        body: JSON.stringify(skill),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(res => res.json())
 }

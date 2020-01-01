@@ -12,18 +12,20 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faIcons, faLaptopCode } from '@fortawesome/free-solid-svg-icons';
 import { findPostsAsyncActionCreator } from '../../store/modules/posts/action';
+import { findDataAsyncActionCreator } from '../../store/modules/skill/action';
 
 const DbCards = () => {
     const dispatch = useDispatch();
     const skillModule = useSelector(store => store.skills.data);
     const postModule = useSelector(store => store.posts.data);
 
-    const skillNumber = skillModule.length;
-    const postNumber = postModule.length;
-
     useEffect(() => {
         dispatch(findPostsAsyncActionCreator());
+        dispatch(findDataAsyncActionCreator());
     }, []);
+    
+    const skillNumber = skillModule.length;
+    const postNumber = postModule.length;
 
     return (
         <div className="db-cards">
