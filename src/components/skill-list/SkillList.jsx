@@ -1,21 +1,13 @@
 import React, { useMemo } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import './SkillList.css';
 import DataTable from 'react-data-table-component';
-import { Button } from 'reactstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { deleteSkillById } from '../../store/modules/skill/action';
 import SkillListEdit from '../skill-list-edit/SkillListEdit';
+import SkillListDelete from '../skill-list-delete/SkillListDelete';
 
 const SkillList = (props) => {
-    const dispatch = useDispatch();
-
-    const handlerOnClick = (id) => {
-        return (event) => {
-            dispatch(deleteSkillById(id));
-        }
-    };
+    const skillModule = useSelector(store => store.skills.data);
+    const data = skillModule;
 
     const columns = useMemo(() => [
         {
@@ -36,28 +28,21 @@ const SkillList = (props) => {
             sortable: false,
         },
         {
-            cell: (skillModule) => {
+            cell: (data) => {
                 return (
                     <div>
-                        <SkillListEdit skill={skillModule}/>&nbsp;&nbsp;
-                        <Button
-                            color="danger"
-                            onClick={handlerOnClick(skillModule.id)}
-                        >
-                            <FontAwesomeIcon icon={faTimes} />
-                        </Button>
+                        <SkillListEdit skill={data}/>&nbsp;&nbsp;
+                        <SkillListDelete skill={data} />
                     </div>
                 )
-            },
+        },
             name: 'A C T I O N',
             ignoreRowClick: true,
             allowOverflow: true,
             button: true,
-          },
-      ], []);
+        },
+    ], []);
 
-    const data = props.skills;
-   
     return (
         <DataTable
             noHeader={true}

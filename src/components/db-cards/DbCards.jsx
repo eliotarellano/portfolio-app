@@ -29,7 +29,7 @@ const DbCards = () => {
 
     return (
         <div className="db-cards">
-            <Container className="mt-4">
+            <Container className="mt-4 mb-4">
                 <Col xs="12" md={{size:8, offset:2}}>
                     <Row>
                         <Col sm="6" className=" mt-2 mb-2 mt-sm-2 mb-sm-0">

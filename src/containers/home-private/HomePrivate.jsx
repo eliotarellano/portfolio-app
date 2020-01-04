@@ -7,19 +7,22 @@ import {
   Row,
   Col,
 } from 'reactstrap';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 const HomePrivate = (props) => {
 
   return (
     <div className="home-private">
       <Header />
-        <Container>
-          <Row>
-            <Col>
-              <DbCards />
-            </Col>
-          </Row>
-        </Container>
+        <ScrollAnimation className="skills-animation-container" animateIn="fadeIn">  
+          <Container>
+            <Row>
+              <Col>
+                <DbCards />
+              </Col>
+            </Row>
+          </Container>
+        </ScrollAnimation>
       <Footer />
     </div>
   );

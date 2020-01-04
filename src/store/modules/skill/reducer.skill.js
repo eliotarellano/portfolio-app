@@ -2,16 +2,19 @@ import {
     SKILLS_FIND_ALL_START,
     SKILLS_FIND_ALL_OK,
     SKILLS_FIND_ALL_NOK,
-    SKILLS_DELETE_BYID,
-    SKILLS_UPDATE_BYID,
     SKILL_SAVE_START,
     SKILL_SAVE_OK,
     SKILL_SAVE_NOK,
+    SKILL_EDIT_START,
+    SKILL_EDIT_OK,
+    SKILL_EDIT_NOK,
+    SKILL_DELETE_START,
+    SKILL_DELETE_OK,
+    SKILL_DELETE_NOK,
 } from './const';
 
 const initialState = {
     data: [],
-    counter: 6,
     loading: false,
     error: null,
     success: null,
@@ -51,7 +54,7 @@ const skillReducer = (prevState = initialState, action) => {
                 ...prevState,
                 loading: false,
                 success: true,
-                error: false,
+                error: null,
                 data: action.payload,
             }
         case SKILL_SAVE_NOK:
@@ -62,18 +65,47 @@ const skillReducer = (prevState = initialState, action) => {
                 error: true,
                 errorMessage: action.payload,
             }
-        case SKILLS_DELETE_BYID:
+        case SKILL_EDIT_START:
             return {
                 ...prevState,
-                skillData: prevState.skillData.filter(skill => skill.id !== action.id),
+                loading: true,
             }
-        case SKILLS_UPDATE_BYID:
+        case SKILL_EDIT_OK:
             return {
                 ...prevState,
-                skillData: prevState.skillData.map(skill => {
-                    const currentSkill = skill.id === action.payload.id;
-                    return currentSkill ? {...skill, name: action.payload.name, percentage: action.payload.percentage } : skill;
-                })
+                loading: false,
+                success: true,
+                error: null,
+                data: action.payload,
+            }
+        case SKILL_EDIT_NOK:
+            return {
+                ...prevState,
+                loading: false,
+                success: false,
+                error: true,
+                errorMessage: action.payload,
+            }
+        case SKILL_DELETE_START:
+            return {
+                ...prevState,
+                loading: true,
+            }
+        case SKILL_DELETE_OK:
+            return {
+                ...prevState,
+                loading: false,
+                success: true,
+                error: null,
+                data: action.payload,
+            }
+        case SKILL_DELETE_NOK:
+            return {
+                ...prevState,
+                loading: false,
+                success: false,
+                error: true,
+                errorMessage: action.payload,
             }
         default:
             return prevState;

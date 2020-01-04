@@ -29,11 +29,11 @@ const AboutCard = (props) => {
                             <Card body className="text-center">
                                 <CardTitle className="row mt-2">
                                     <Col sm="12" md="6">
-                                        <Col md="12"><FontAwesomeIcon icon={faCode} size="3x" /></Col>
+                                        <Col md="12"><FontAwesomeIcon className="db-cards-custom-title" icon={faCode} size="3x" /></Col>
                                         <Col md="12 mt-2"><b><i>Front-end</i></b>&nbsp; <i>Developer</i></Col>
                                     </Col>
                                     <Col sm="12" md="6">
-                                        <Col md="12"><FontAwesomeIcon icon={faPen} size="3x" /></Col>
+                                        <Col md="12"><FontAwesomeIcon className="db-cards-custom-title" icon={faPen} size="3x" /></Col>
                                         <Col md="12 mt-2"><b><i>Designer</i></b></Col>
                                     </Col>
                                 </CardTitle>

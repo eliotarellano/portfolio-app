@@ -11,6 +11,16 @@
   animation: fadein 2s;
 }
 
+.footer-light {
+  color: rgba(0,0,0,.9);
+  transition: .25s ease-out;
+}
+
+.footer-dark {
+  color: #fff;
+  transition: .25s ease-out;
+}
+
 .custom-footer {
   border-top: 1px solid rgb(243, 243, 243);
 }
@@ -39,7 +49,7 @@
 }
 
 /* Opera < 12.1 */
-@-o-keyframes fadein {
+@-o-keyframes fadeinMove {
   from { opacity: 0; transform: translate3d(0, 20%, 0);}
   to   { opacity: 1s ease; transform: none;}
 }

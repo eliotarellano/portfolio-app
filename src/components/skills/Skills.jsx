@@ -23,7 +23,7 @@ const Skills = (props) => {
     }, []);
 
     return (
-        <div className="skills mt-4 mb-4">
+        <div className="skills mt-4 mb-5">
             <ScrollAnimation className="skills-animation-container" animateIn="fadeIn">        
                 <Container>
                     <Row> 
@@ -32,12 +32,12 @@ const Skills = (props) => {
                             {skillModule.data.map(skill => (
                                 <div key={skill.id}>
                                     <div className="form-inline mt-4">
-                                    <Col md="6" xs="12">
-                                        <span className="float-md-left">{skill.name}</span>
-                                    </Col>
-                                    <Col md="6" xs="12">
-                                        <span className="float-md-right">{skill.percentage} %</span>
-                                    </Col>
+                                        <Col md="6" xs="12">
+                                            <span className="float-md-left">{skill.name}</span>
+                                        </Col>
+                                        <Col md="6" xs="12">
+                                            <span className="float-md-right">{skill.percentage} %</span>
+                                        </Col>
                                     </div>
                                     <Progress
                                         barClassName="progress-bar-custom"

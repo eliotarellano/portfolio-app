@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import './SkillListAdd.css';
@@ -9,16 +9,12 @@ import {
 } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faCode, faPercentage } from '@fortawesome/free-solid-svg-icons'
-import { findDataAsyncActionCreator, addSkillAsyncActionCreator } from '../../store/modules/skill/action';
+import { addSkillAsyncActionCreator } from '../../store/modules/skill/action';
 
 
 const SkillListAdd = (props) => {
     const dispatch = useDispatch();
     const skillModule = useSelector(store => store.skills.data);
-
-    useEffect(() => {
-        dispatch(findDataAsyncActionCreator());
-    }, []);
 
     const [name, setName] = useState('');
     const [percentage, setPercentage] = useState('');

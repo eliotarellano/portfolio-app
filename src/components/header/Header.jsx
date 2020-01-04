@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './Header.css';
+import Context from '../../context/Context';
 import {
     Collapse,
     Navbar,
@@ -15,14 +16,17 @@ import {
 import { NavLink as RRNavLink } from 'react-router-dom';
 import logo from '../../assets/images/eriottologo.png';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { logoutActionCreator } from '../../store/modules/login/actions';
 
 const Header = (props) => {
     const dispatch = useDispatch();
     const isLogin = useSelector(store => store.login.isLogin);
+    const contextData = useContext(Context);
 
     const [isOpen, setIsOpen] = useState(false);
+
+    const theme = contextData.theme;
 
     const toggle = () => setIsOpen(!isOpen);
 
@@ -36,7 +40,13 @@ const Header = (props) => {
 
   return (
     <div className="header">
-        <Navbar light expand="md" className="custom-navbar">
+        <Navbar
+            expand="md"
+            className={
+                theme !== 'dark' 
+                ? 'custom-navbar text-center navbar-light bg-light' 
+                : 'custom-navbar text-center  navbar-dark bg-dark'
+        }>
             <NavbarBrand className="pl-5" tag={RRNavLink} exact to="/">
                 <img  
                     alt=""
@@ -52,30 +62,16 @@ const Header = (props) => {
             <Nav navbar className="mr-auto navbar"/>
             <NavbarText>
                 <Nav className="pr-4">
-                    {!isLogin 
-                    ?
-                        <NavItem className="m-3" onClick={handlerOnClick}>
-                            <NavLink 
-                                tag={RRNavLink}
-                                exact to="/"
-                                activeClassName="active"
-                                disabled={window.location.pathname === '/' ? true : false}
-                            >
-                                {window.location.pathname === '/' ? '/ /' : '| |'}&nbsp; H O M E 
-                            </NavLink>
-                        </NavItem> 
-                    :
-                        <NavItem className="m-3" onClick={handlerOnClick}>
-                            <NavLink 
-                                tag={RRNavLink}
-                                exact to="/private/home"
-                                activeClassName="active"
-                                disabled={window.location.pathname === '/private/home' ? true : false}
-                            >
-                                {window.location.pathname === '/private/home' ? '/ /' : '| |'}&nbsp; H O M E 
-                            </NavLink>
-                        </NavItem> 
-                    }
+                    <NavItem className="m-3" onClick={handlerOnClick}>
+                        <NavLink 
+                            tag={RRNavLink}
+                            exact to="/"
+                            activeClassName="active"
+                            disabled={window.location.pathname === '/' ? true : false}
+                        >
+                            {window.location.pathname === '/' ? '/ /' : '| |'}&nbsp; H O M E 
+                        </NavLink>
+                    </NavItem>
                     {!isLogin 
                     ?
                     <NavItem className="m-3" onClick={handlerOnClick}>
@@ -119,6 +115,20 @@ const Header = (props) => {
                     : ''
                     }
                     {isLogin 
+                    ?
+                        <NavItem className="m-3" onClick={handlerOnClick}>
+                        <NavLink 
+                            tag={RRNavLink}
+                            exact to="/private/home"
+                            activeClassName="active"
+                            disabled={window.location.pathname === '/private/home' ? true : false}
+                        >
+                            {window.location.pathname === '/private/home' ? '/ /' : '| |'}&nbsp; P R O F I L E
+                        </NavLink>
+                    </NavItem> 
+                    : ''
+                    }
+                    {isLogin 
                         ?
                         <NavItem className="m-3">
                             <NavLink 
@@ -127,7 +137,7 @@ const Header = (props) => {
                                 activeClassName="active"
                                 onClick={handlerLogOut}
                             >
-                            <FontAwesomeIcon icon={faSignOutAlt} />
+                                &nbsp; | |&nbsp; L O G O U T
                             </NavLink>
                         </NavItem>
                         :

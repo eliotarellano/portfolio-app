@@ -1,21 +1,19 @@
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import './Skill.css';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
 import SkillList from '../../components/skill-list/SkillList';
 import SkillListAdd from '../../components/skill-list-add/SkillListAdd';
-import { findDataAsyncActionCreator } from '../../store/modules/skill/action';
 import {
     Container,
     Col
 } from 'reactstrap';
 import ScrollAnimation from 'react-animate-on-scroll';
+import { findDataAsyncActionCreator } from '../../store/modules/skill/action';
 
 const Skills = (props) => {
-
     const dispatch = useDispatch();
-    const skillModule = useSelector(store => store.skills.data);
 
     useEffect(() => {
         dispatch(findDataAsyncActionCreator());
@@ -31,7 +29,7 @@ const Skills = (props) => {
                     </Col>
                     <Col xs="12" md={{size:8, offset:2}}>
                         <SkillListAdd />
-                        <SkillList skills={skillModule} />
+                        <SkillList/>
                     </Col>
                 </Container>
             </ScrollAnimation>

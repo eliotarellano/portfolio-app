@@ -25,7 +25,7 @@ const UserCard = (props) => {
     const toggleBehance = () => setTooltipBehance(!tooltipBehance);
 
     return (
-        <div className="user-card">
+        <div className="user-card" >
             <Container>
                 <Row className="text-center">
                     <Col sm="12" md="6" className="user-card-image-wrapper">

@@ -1,45 +1,43 @@
-.user-card {
-
-}
-
-.user-card-image-wrapper {
-  /* width: 270px;
-  height: 270px;
-  padding: 30px;
-  margin: 0px auto; */
-}
-
 .user-card-image {
-  /* position: absolute;
-  top: 0px;
-  left: 0px; */
-  width: 70%;
-  /* object-fit: cover;
-  object-position: center center;
-  padding-right: 20px !important; */
+  width: 80%;
+}
+
+.user-card-info {
+  text-align: justify;
+}
+
+.user-card-p {
+  color: #000000;
+    font-size: 15px;
+    line-height: 2;
+}
+
+.user-card-p-dev {
+  color: #000000;
+    font-size: 18px;
+    line-height: 2;
+}
+
+.user-card-a {
+  color: #000000;
+  font-size: 30px;
+}
+
+.user-card-a:hover {
+  color: #000000;
 }
 
 @media (max-width: 575px) {
   .user-card {
-    width: 940px;
     max-width: 100%;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    /* margin: 0px auto;
-    padding: 50px 10px;
-    height: 80vh; */
-    height: 70vh;
   }
 
   .user-card-image {
     width: 70%;
-    object-fit: cover;
-    object-position: center center;
-    padding-right: 10px !important;
     margin-top: 40px;
     margin-bottom: 20px;
   }
+  
   .user-card-info { 
     text-align: center !important;
   }
@@ -47,55 +45,6 @@
   .user-card-container-a {
     width: 33.33333333%;
     display: inline-block;
-    float: none;
-    vertical-align: top;
-    text-align: center;
-    flex-wrap: none !important;
   }
 
-}
-
-.user-card-info {
-  padding-left: 30px;
-  text-align: justify;
-}
-
-.user-card-h1 {
-  font-size: 30px;
-  font-weight: 400;
-  color: rgb(41, 41, 41);
-  margin-bottom: 20px;
-}
-
-.user-card-p {
-  color: rgb(41, 41, 41);
-    font-size: 15px;
-    line-height: 2;
-}
-
-.user-card-p-dev {
-  color: rgb(41, 41, 41);
-    font-size: 18px;
-    line-height: 2;
-}
-
-.user-card-p-item {
-  position: relative;
-  margin-right: 20px;
-  list-style: none;
-}
-
-.user-card-a {
-  color: rgb(41, 41, 41);
-  font-size: 30px;
-  display: block;
-  padding: 0.2em;
-}
-
-.user-card-a:hover {
-  color: rgb(41, 41, 41);
-}
-
-.user-card-a-tooltip {
-  background-color: #ffffff !important;
 }
