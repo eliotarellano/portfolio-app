@@ -13,7 +13,7 @@ import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 const Contact = (props) => {
     return (
         <div className="contact-cards">
-            <Container className="mt-4">
+            <Container className="mt-4 mb-4">
                 <Col className="py-4 text-center">
                     <h4>C O N T A C T</h4>
                     <span>G E T &nbsp; I N &nbsp; T O U C H</span>

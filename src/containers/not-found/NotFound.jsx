@@ -14,7 +14,7 @@ const NotFound = (props) => {
         <Header />
           <Container>
             <Row>
-              <Col className="mt-4">
+              <Col className="mt-4 mb-4 text-center">
                 <NotFoundComp />
               </Col>
             </Row>

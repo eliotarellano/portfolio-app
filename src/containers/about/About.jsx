@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
 import AboutCard from '../../components/about-card/AboutCard';
+import Context from '../../context/Context';
 import {
   Container,
   Row,
@@ -10,8 +11,10 @@ import {
 import ScrollAnimation from 'react-animate-on-scroll';
 
 const About = (props) => {
-  return (
-        <div className="about">
+    const contextData = useContext(Context);
+    const theme = contextData.theme;
+    return (
+        <div className={theme !== 'dark' ? 'home-light bg-light' : 'home-dark bg-dark'}>
             <Header />
             <ScrollAnimation className="skills-animation-container" animateIn="fadeIn">  
                 <Container>
@@ -24,7 +27,7 @@ const About = (props) => {
             </ScrollAnimation>
             <Footer />
         </div>
-  );
+    );
 }
   
 export default About;

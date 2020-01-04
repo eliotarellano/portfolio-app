@@ -1,43 +1,39 @@
-import React, { useEffect } from 'react';
-import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import Context from './context/Context';
+import PublicRoute from './components/public-route/PublicRoute';
+import ToggleTheme from './components/toggle-theme/ToggleTheme';
 import './App.css';
-import Home from './containers/home/Home';
-import HomePrivate from './containers/home-private/HomePrivate';
-import Login from './containers/login/Login';
-import About from './containers/about/About';
-import Contact from './containers/contact/Contact';
-import NotFound from './containers/not-found/NotFound';
-import Skill from './containers/skill/Skill';
-import { PrivateRoute } from './components/private-route/PrivateRoute';
-import store from './store';
 
 const App = () => {
+    const [theme, setTheme] = useState('light');
 
-  useEffect(() => {
-    setTimeout((
-      window.scrollTo(0, 0)
-    ), 9000);
-  });
+    useEffect(() => {
+        setTimeout((
+            window.scrollTo(0, 0)
+        ), 9000);
+    });
 
-  return (
-    <div className="app">
-      <Provider store={store}>      
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/login" component={Login} />
-            <Route path="/about" component={About} />
-            <Route path="/contact" component={Contact} />
-            <Route path="/login" component={Login} />
-            <PrivateRoute exact path="/private/home" component={HomePrivate} />
-            <PrivateRoute path="/private/skills" component={Skill} />
-            <Route component={NotFound} />
-          </Switch>
-        </Router>
-      </Provider>
-    </div>
-  );
+    const toggleTheme = () => {
+        if (theme === 'light') {
+            setTheme('dark');
+        } else {
+            setTheme('light');
+        }
+    };
+
+    const contextData = {
+        theme: theme,
+        toggler: toggleTheme,
+    };
+
+    return (
+        <div className="app">
+            <Context.Provider value={contextData}>
+                <PublicRoute />
+                <ToggleTheme />
+            </Context.Provider>      
+        </div>
+    );
 }
 
 export default App;

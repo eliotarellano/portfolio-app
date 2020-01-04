@@ -13,7 +13,7 @@ import { faCode, faPen } from '@fortawesome/free-solid-svg-icons';
 const AboutCard = (props) => {
     return (
         <div className="about-card">
-            <Container className="mt-4">
+            <Container className="mt-4 mb-4">
                 <Col md="12" className="py-4 text-center">
                     <h4>Hi, I'm <b>Eliot</b>. Nice to meet you.</h4>
                 </Col>

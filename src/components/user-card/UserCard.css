@@ -7,24 +7,33 @@
 }
 
 .user-card-p {
-  color: #000000;
     font-size: 15px;
     line-height: 2;
 }
 
 .user-card-p-dev {
-  color: #000000;
     font-size: 18px;
     line-height: 2;
 }
 
-.user-card-a {
-  color: #000000;
+.user-card-a-light {
   font-size: 30px;
+  color: #c26774;
+  border: 0px !important;
 }
 
-.user-card-a:hover {
-  color: #000000;
+.user-card-a-dark {
+  font-size: 30px;
+  color: #c26774;
+  border: 0px !important;
+}
+
+.user-card-a-light:hover {
+  color: #c26774;
+}
+
+.user-card-a-dark:hover {
+  color: #c26774;
 }
 
 @media (max-width: 575px) {
