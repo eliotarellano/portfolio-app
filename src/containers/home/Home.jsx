@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import Context from '../../context/Context';
-import Header from '../../components/header/Header';
-import Footer from '../../components/footer/Footer';
 import UserCard from '../../components/user-card/UserCard';
 import Skills from '../../components/skills/Skills';
 import './Home.css';
@@ -16,7 +14,7 @@ class Home extends Component {
     render() {
         return (
             <div className={this.context.theme !== 'dark' ? 'home-light bg-light' : 'home-dark bg-dark'}>
-                <Header />
+                {/* <Header /> */}
                 <Container className="home-custom">
                     <Row>
                         <Col md="12" sm="12" className="custom-col-home-card">
@@ -27,7 +25,7 @@ class Home extends Component {
                         </Col>
                     </Row>
                 </Container>
-                <Footer />
+                {/* <Footer /> */}
             </div>
         );
     }

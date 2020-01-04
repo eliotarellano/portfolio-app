@@ -23,15 +23,16 @@ const Header = (props) => {
     const dispatch = useDispatch();
     const isLogin = useSelector(store => store.login.isLogin);
     const contextData = useContext(Context);
+    const theme = contextData.theme;
 
     const [isOpen, setIsOpen] = useState(false);
-
-    const theme = contextData.theme;
+    const [location, setLocation] = useState(window.location.pathname);
 
     const toggle = () => setIsOpen(!isOpen);
 
     const handlerOnClick = (event) => {
-      event.stopPropagation();
+        const path = event.target.getAttribute('id');
+        setLocation(path)
     };
 
     const handlerLogOut = () => {
@@ -40,13 +41,7 @@ const Header = (props) => {
 
   return (
     <div className="header">
-        <Navbar
-            expand="md"
-            className={
-                theme !== 'dark' 
-                ? 'custom-navbar text-center navbar-light bg-light' 
-                : 'custom-navbar text-center  navbar-dark bg-dark'
-        }>
+        <Navbar expand="md" className={theme !== 'dark' ? 'custom-navbar text-center navbar-light bg-light' : 'custom-navbar text-center  navbar-dark bg-dark'}>
             <NavbarBrand className="pl-5" tag={RRNavLink} exact to="/">
                 <img  
                     alt=""
@@ -62,68 +57,73 @@ const Header = (props) => {
             <Nav navbar className="mr-auto navbar"/>
             <NavbarText>
                 <Nav className="pr-4">
-                    <NavItem className="m-3" onClick={handlerOnClick}>
+                    <NavItem className="m-3">
                         <NavLink 
                             tag={RRNavLink}
                             exact to="/"
                             activeClassName="active"
-                            disabled={window.location.pathname === '/' ? true : false}
+                            id={'/'}
+                            onClick={handlerOnClick}
                         >
-                            {window.location.pathname === '/' ? '/ /' : '| |'}&nbsp; H O M E 
+                            {location === '/' ? '/ /' : '| |'}&nbsp; H O M E 
                         </NavLink>
                     </NavItem>
                     {!isLogin 
                     ?
-                    <NavItem className="m-3" onClick={handlerOnClick}>
+                    <NavItem className="m-3">
                         <NavLink 
                             tag={RRNavLink}
                             to="/about"
                             activeClassName="active"
-                            disabled={window.location.pathname === '/about' ? true : false}
+                            id={'/about'}
+                            onClick={handlerOnClick}
                         >
-                        {window.location.pathname === '/about' ? '/ /' : '| |'}&nbsp; A B O U T
+                        {location === '/about' ? '/ /' : '| |'}&nbsp; A B O U T
                         </NavLink>
                     </NavItem>
                     : ''
                     }
                     {!isLogin 
                     ?
-                        <NavItem className="m-3" onClick={handlerOnClick}>
+                        <NavItem className="m-3">
                             <NavLink 
                                 tag={RRNavLink}
                                 to="/contact"
                                 activeClassName="active"
-                                disabled={window.location.pathname === '/contact' ? true : false}
+                                id={'/contact'}
+                                onClick={handlerOnClick}
                             >
-                                {window.location.pathname === '/contact' ? '/ /' : '| |'}&nbsp; C O N T A C T
+                                {location === '/contact' ? '/ /' : '| |'}&nbsp; C O N T A C T
                             </NavLink>
                         </NavItem>
                     : ''
                     }
                     {isLogin 
                     ?
-                        <NavItem className="m-3" onClick={handlerOnClick}>
+                        <NavItem className="m-3">
                             <NavLink 
                                 tag={RRNavLink}
                                 to="/private/skills"
                                 activeClassName="active"
-                                disabled={window.location.pathname === '/private/skills' ? true : false}
+                                id={'/private/skills'}
+                                onClick={handlerOnClick}
                             >
-                                {window.location.pathname === '/private/skills' ? '/ /' : '| |'}&nbsp; S K I L L S
+                                {location === '/private/skills' ? '/ /' : '| |'}&nbsp; S K I L L S
                             </NavLink>
                         </NavItem>
                     : ''
                     }
                     {isLogin 
                     ?
-                        <NavItem className="m-3" onClick={handlerOnClick}>
+                        <NavItem className="m-3">
                         <NavLink 
                             tag={RRNavLink}
                             exact to="/private/home"
                             activeClassName="active"
-                            disabled={window.location.pathname === '/private/home' ? true : false}
+                            id={'/private/home'}
+                            onClick={handlerOnClick}
                         >
-                            {window.location.pathname === '/private/home' ? '/ /' : '| |'}&nbsp; P R O F I L E
+                            {location === '/private/home' ? '/ /' : '| |'}&nbsp; P R O F I L E
                         </NavLink>
                     </NavItem> 
                     : ''
@@ -141,14 +141,15 @@ const Header = (props) => {
                             </NavLink>
                         </NavItem>
                         :
-                        <NavItem className="m-3" onClick={handlerOnClick}>
+                        <NavItem className="m-3">
                             <NavLink 
                                 tag={RRNavLink}
                                 to="/login"
                                 activeClassName="active"
-                                disabled={window.location.pathname === '/login' ? true : false}
+                                id={'/login'}
+                                onClick={handlerOnClick}
                             >
-                            {window.location.pathname === '/login' ? '/ /' : '| |'}&nbsp; L O G I N 
+                            {location === '/login' ? '/ /' : '| |'}&nbsp; L O G I N 
                             </NavLink>
                         </NavItem>
                     }

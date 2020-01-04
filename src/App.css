@@ -24,6 +24,16 @@
   color: white;
 }
 
+.home-light {
+  color: rgba(0,0,0,.9) !important;
+  transition: .25s ease-out;
+}
+
+.home-dark {
+  color: #fff !important;
+  transition: .25s ease-out;
+}
+
 .app-link {
   color: #61dafb;
 }

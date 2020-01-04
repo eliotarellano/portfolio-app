@@ -1,13 +1,32 @@
-import React, { useMemo } from 'react';
+import React, { useContext, useState, useEffect, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import './SkillList.css';
+import Context from '../../context/Context';
 import DataTable from 'react-data-table-component';
 import SkillListEdit from '../skill-list-edit/SkillListEdit';
 import SkillListDelete from '../skill-list-delete/SkillListDelete';
 
 const SkillList = (props) => {
     const skillModule = useSelector(store => store.skills.data);
+    const [style, setStyle] = useState({});
     const data = skillModule;
+    const contextData = useContext(Context);
+    const theme = contextData.theme;
+
+    useEffect(() => {
+        if (theme === 'dark') {
+            setStyle({
+                backgroundColor: '#343a40',
+                color: '#fff'
+            })
+        } else if (theme === 'light') {
+            setStyle({
+                backgroundColor: '#f8f9fa',
+                color: '#000'
+            })
+        }
+
+    },[]);
 
     const columns = useMemo(() => [
         {

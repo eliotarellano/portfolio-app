@@ -1,6 +1,5 @@
-import React from 'react';
-import Header from '../../components/header/Header';
-import Footer from '../../components/footer/Footer';
+import React, { useContext } from 'react';
+import Context from '../../context/Context';
 import {
   Container,
   Row,
@@ -10,21 +9,21 @@ import LoginForm from '../../components/login-form/LoginForm';
 import ScrollAnimation from 'react-animate-on-scroll';
 
 const Login = (props) => {
-  return (
-    <div className="login">
-      <Header />
-        <ScrollAnimation className="skills-animation-container" animateIn="fadeIn">   
-          <Container>
-            <Row>
-              <Col>
-                <LoginForm {...props} />
-              </Col>
-            </Row>
-          </Container>
-        </ScrollAnimation>
-      <Footer />
-    </div>
-  );
+    const contextData = useContext(Context);
+    const theme = contextData.theme;
+    return (
+        <div className={theme !== 'dark' ? 'home-light bg-light' : 'home-dark bg-dark'}>
+            <ScrollAnimation className="skills-animation-container" animateIn="fadeIn">   
+                <Container>
+                    <Row>
+                    <Col>
+                        <LoginForm {...props} />
+                    </Col>
+                    </Row>
+                </Container>
+            </ScrollAnimation>
+        </div>
+    );
 }
   
 export default Login;

@@ -1,7 +1,6 @@
-import React from 'react';
-import Header from '../../components/header/Header';
-import Footer from '../../components/footer/Footer';
+import React, { useContext } from 'react';
 import ContactCards from '../../components/contact-cards/ContactCards';
+import Context from '../../context/Context';
 import {
   Container,
   Row,
@@ -10,21 +9,21 @@ import {
 import ScrollAnimation from 'react-animate-on-scroll';
 
 const Contact = (props) => {
-  return (
-    <div className="contact">
-      <Header />
-        <ScrollAnimation className="skills-animation-container" animateIn="fadeIn">   
-            <Container>
-                <Row>
-                    <Col>
-                        <ContactCards />
-                    </Col>
-                </Row>
-            </Container>
-        </ScrollAnimation>
-      <Footer />
-    </div>
-  );
+    const contextData = useContext(Context);
+    const theme = contextData.theme;
+    return (
+        <div className={theme !== 'dark' ? 'home-light bg-light' : 'home-dark bg-dark'}>
+            <ScrollAnimation className="skills-animation-container" animateIn="fadeIn">   
+                <Container>
+                    <Row>
+                        <Col>
+                            <ContactCards />
+                        </Col>
+                    </Row>
+                </Container>
+            </ScrollAnimation>
+        </div>
+    );
 }
   
 export default Contact;

@@ -24,7 +24,7 @@ const Footer = (props) => {
                 ? 'footer footer-light bg-light' 
                 : 'footer footer-dark bg-dark'
         }>        
-            <Container className="text-center mw-100 w-100 pt-4 pb-4 custom-footer">
+            <Container className="text-center mw-100 w-100 pt-4 pb-4">
             {/* custom-footer fixed-bottom */}
                 <Row>    
                     <Col xs="12" md="12" lg="12" className="">

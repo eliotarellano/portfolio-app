@@ -21,10 +21,6 @@
   transition: .25s ease-out;
 }
 
-.custom-footer {
-  border-top: 1px solid rgb(243, 243, 243);
-}
-
 @keyframes fadein {
   from { opacity: 0; transform: translate3d(0, 20%, 0);}
   to   { opacity: 1s ease; transform: none;}

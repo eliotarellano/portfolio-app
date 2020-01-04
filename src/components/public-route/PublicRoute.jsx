@@ -1,6 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Header from '../header/Header';
+import Footer from '../footer/Footer';
 import Home from '../../containers/home/Home';
 import HomePrivate from '../../containers/home-private/HomePrivate';
 import Login from '../../containers/login/Login';
@@ -16,6 +18,7 @@ const PublicRoute = () => {
         <div className="public-route">
             <Provider store={store}>
                 <Router>
+                    <Header />
                     <Switch>
                         <Route exact path="/" component={Home} />
                         <Route path="/login" component={Login} />
@@ -26,6 +29,7 @@ const PublicRoute = () => {
                         <PrivateRoute path="/private/skills" component={Skill} />
                         <Route component={NotFound} />
                     </Switch>
+                    <Footer />
                 </Router>
             </Provider>      
         </div>
