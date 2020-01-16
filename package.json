@@ -1,5 +1,5 @@
 {
-  "homepage": "https://eliotarellano.github.io/portfolio-app/",
+  "homepage": "https://www.eliotarellano.com",
   "name": "portfolio-app",
   "version": "0.1.0",
   "private": true,
@@ -17,6 +17,7 @@
     "react-animate-on-scroll": "^2.1.5",
     "react-data-table-component": "^6.0.2",
     "react-dom": "^16.12.0",
+    "react-lazy-load-image-component": "^1.4.0",
     "react-redux": "^7.1.3",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",

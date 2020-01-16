@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './ContactCards.css';
 import {
     Container,
@@ -7,10 +7,14 @@ import {
     Card,
     CardTitle,
 } from 'reactstrap';
+import Context from '../../context/Context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const Contact = (props) => {
+    const contextData = useContext(Context);
+    const theme = contextData.theme;
+
     return (
         <div className="contact-cards">
             <Container className="mt-4 mb-4">
@@ -27,7 +31,7 @@ const Contact = (props) => {
                                 </CardTitle>
                             </Card>
                             <Col className="mt-4 text-center">
-                                <a className="custom-a" href="tel:+56962399504">+56 9 6239 9504</a>
+                                <a className={theme === 'light' ? 'custom-a-light' : 'custom-a-dark'} href="tel:+56962399504">+56 9 6239 9504</a>
                             </Col>
                         </Col>
                         <Col sm="6" md={{size: 3, offset: 2}} className=" mt-2 mb-2 mt-sm-2 mb-sm-0">
@@ -37,7 +41,7 @@ const Contact = (props) => {
                                 </CardTitle>
                             </Card>
                             <Col className="mt-4 text-center">
-                                <a className="custom-a" href="mailto:eliot.arellano.94@gmail.com">eliot.arellano.94@gmail.com</a>
+                                <a className={theme === 'light' ? 'custom-a-light' : 'custom-a-dark'}  href="mailto:contacto@eliotarellano.com">contacto@eliotarellano.com</a>
                             </Col>
                         </Col>
                     </Row>

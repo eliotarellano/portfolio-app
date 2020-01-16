@@ -1,25 +1,21 @@
 .container-theme-toggler {
-    position: fixed;
-    top: 50%;
-    bottom: 50%;
-    right: 0px;
-    z-index: 999;
-    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadein 2s; /* Firefox < 16 */
-    -ms-animation: fadein 2s; /* Internet Explorer */
-    -o-animation: fadein 2s; /* Opera < 12.1 */
-    animation: fadein 2s;
-  }
-  
-  .theme-toggler {
-    display: block;
-    font-size: 18px;
-    letter-spacing: 0.17em;
-    background-color: #c26774;
-    color: rgb(255, 255, 255);
-    -webkit-writing-mode: vertical-rl;
-    writing-mode: vertical-rl;
-    text-orientation: upright;
-    cursor: pointer;
-    padding: 10px 12px;
-  }
+  position: fixed;
+  top: 50%;
+  bottom: 50%;
+  right: 0px;
+  z-index: 999;
+  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 2s; /* Firefox < 16 */
+  -ms-animation: fadein 2s; /* Internet Explorer */
+  -o-animation: fadein 2s; /* Opera < 12.1 */
+  animation: fadein 2s;
+}
+
+.theme-toggler {
+  display: block;
+  font-size: 18px;
+  background-color: #c26774;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  padding: 10px 12px;
+}

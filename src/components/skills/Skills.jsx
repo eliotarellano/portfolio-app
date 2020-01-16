@@ -9,7 +9,7 @@ import {
 } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCode } from '@fortawesome/free-solid-svg-icons';
-import { findDataAsyncActionCreator } from '../../store/modules/skill/action';
+import { findAllSkills } from '../../store/modules/skill/action';
 import ScrollAnimation from 'react-animate-on-scroll';
 
 
@@ -19,11 +19,11 @@ const Skills = (props) => {
     const skillModule = useSelector(store => store.skills);
 
     useEffect(() => {
-        dispatch(findDataAsyncActionCreator());
+        dispatch(findAllSkills());
     }, []);
 
     return (
-        <div className="skills mt-4 mb-5">
+        <div className="skills mt-4 mb-4">
             <ScrollAnimation className="skills-animation-container" animateIn="fadeIn">        
                 <Container>
                     <Row> 
@@ -32,12 +32,12 @@ const Skills = (props) => {
                             {skillModule.data.map(skill => (
                                 <div key={skill.id}>
                                     <div className="form-inline mt-4">
-                                        <Col md="6" xs="12">
-                                            <span className="float-md-left">{skill.name}</span>
-                                        </Col>
-                                        <Col md="6" xs="12">
-                                            <span className="float-md-right">{skill.percentage} %</span>
-                                        </Col>
+                                    <Col md="6" xs="12">
+                                        <span className="float-md-left">{skill.name}</span>
+                                    </Col>
+                                    <Col md="6" xs="12">
+                                        <span className="float-md-right">{skill.percentage} %</span>
+                                    </Col>
                                     </div>
                                     <Progress
                                         barClassName="progress-bar-custom"

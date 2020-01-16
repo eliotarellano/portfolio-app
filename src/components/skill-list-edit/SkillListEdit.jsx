@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import './SkillListEdit.css';
 import { 
     Container,
@@ -21,14 +21,13 @@ import {
     faCode,
     faPercent
 } from '@fortawesome/free-solid-svg-icons'
-import { updateSkillAsyncActionCreator } from '../../store/modules/skill/action';
+import { updateSkillById } from '../../store/modules/skill/action';
 
 const SkillListEdit = (props) => {
     const {
         className
     } = props;
     const dispatch = useDispatch();
-    const skillModule = useSelector(store => store.skills.data);
 
     const [modal, setModal] = useState(false);
     const [name, setName] = useState(props.skill.name);
@@ -37,35 +36,24 @@ const SkillListEdit = (props) => {
     const toggle = () => setModal(!modal);
 
     const handlerOnClick = () => {
-        const data = skillModule;
-        const newSkill = {
+        const data = {
             id: props.skill.id,
             name: name,
             percentage: percentage,
         }
-        data.map(skill => {
-            const i = data.findIndex(skill => skill.id === newSkill.id);
-            data[i].name = newSkill.name;
-            data[i].percentage = newSkill.percentage;
-        });
-        const skillObj = {
-            description: JSON.stringify(data),
-        }
-        dispatch(updateSkillAsyncActionCreator(skillObj))
-        setName('');
-        setPercentage('');
+        dispatch(updateSkillById(data))
         toggle();
     };
 
     return (
         <Fragment>
-            <Button color="danger" className="btn-custom-sl" onClick={toggle}><FontAwesomeIcon icon={faPencilAlt} /></Button>
+            <Button color="danger" className="btn-custom-sl" onClick={handlerOnClick}><FontAwesomeIcon icon={faPencilAlt} /></Button>
             <Modal isOpen={modal} toggle={toggle} className={className} centered>
                 <ModalHeader
                     className="bs-custom-modal-header"
                     toggle={toggle}
                 >
-                    <Label className="mt-2 bs-custom-modal-header">E D I T &nbsp; S K I L L</Label>
+                    <Label className="ml-4 mt-2 bs-custom-modal-header">E D I T &nbsp; S K I L L</Label>
                 </ModalHeader>
                 <ModalBody>
                     <Container>
@@ -89,8 +77,7 @@ const SkillListEdit = (props) => {
                                     type="number"
                                     placeholder="P E R C E N T A G E"
                                     value={percentage}
-                                    max={100}
-                                    onChange={(event) => event.target.value > 100 ? setPercentage('100') : setPercentage(event.target.value) }
+                                    onChange={(event) => setPercentage(event.target.value)}
                                 />
                             </Col>
                         </Row>

@@ -1,6 +1,8 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './Header.css';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import logo from '../../assets/images/eriottologo.png';
 import Context from '../../context/Context';
 import {
     Collapse,
@@ -14,13 +16,12 @@ import {
     Button,
 } from 'reactstrap';
 import { NavLink as RRNavLink } from 'react-router-dom';
-import logo from '../../assets/images/eriottologo.png';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { logoutActionCreator } from '../../store/modules/login/actions';
+// import { logoutActionCreator } from '../../store/modules/login/actions';
 
 const Header = (props) => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const isLogin = useSelector(store => store.login.isLogin);
     const contextData = useContext(Context);
     const theme = contextData.theme;
@@ -35,20 +36,15 @@ const Header = (props) => {
         setLocation(path)
     };
 
-    const handlerLogOut = () => {
-        dispatch(logoutActionCreator());
-    }
+    // const handlerLogOut = () => {
+    //     dispatch(logoutActionCreator());
+    // }
 
   return (
     <div className="header">
         <Navbar expand="md" className={theme !== 'dark' ? 'custom-navbar text-center navbar-light bg-light' : 'custom-navbar text-center  navbar-dark bg-dark'}>
             <NavbarBrand className="pl-5" tag={RRNavLink} exact to="/">
-                <img  
-                    alt=""
-                    src={logo}
-                    height="30"
-                    className="mr-auto header-logo"
-                />
+                <LazyLoadImage alt="" src={logo} height="30" className="mr-auto header-logo"/>
             </NavbarBrand>
             <Button outline color="danger" onClick={toggle} tag={NavbarToggler} className="navbar-btn-collapse">
                 <FontAwesomeIcon icon={faBars} />
@@ -128,7 +124,7 @@ const Header = (props) => {
                     </NavItem> 
                     : ''
                     }
-                    {isLogin 
+                    {/* {isLogin 
                         ?
                         <NavItem className="m-3">
                             <NavLink 
@@ -152,7 +148,7 @@ const Header = (props) => {
                             {location === '/login' ? '/ /' : '| |'}&nbsp; L O G I N 
                             </NavLink>
                         </NavItem>
-                    }
+                    } */}
                 </Nav>
             </NavbarText>
             </Collapse>

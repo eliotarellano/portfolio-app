@@ -1,3 +1,7 @@
-.custom-a {
+.custom-a-light {
     color: #182432 !important
+}
+
+.custom-a-dark {
+    color: #ffffff !important
 }

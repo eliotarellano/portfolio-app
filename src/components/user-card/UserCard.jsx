@@ -1,5 +1,7 @@
 import React, { useState, useContext } from 'react';
 import './UserCard.css';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import photo from '../../assets/images/eriottoimg.png';
 import Context from '../../context/Context';
 import { 
     Container,
@@ -10,17 +12,17 @@ import {
     NavLink,
     Tooltip,
 } from 'reactstrap';
-import photo from '../../assets/images/eriottoimg.png';
 import TypedTitle from '../typed-title/TypedTitle';
 
 const UserCard = (props) => {
     const contextData = useContext(Context);
     const theme = contextData.theme;
+    
     const [tooltipLinkedin, setTooltipLinkedin] = useState(false);
     const [tooltipGitHub, setTooltipGitHub] = useState(false);
     // const [tooltipInstagram, setTooltipInstagram] = useState(false);
     const [tooltipBehance, setTooltipBehance] = useState(false);
-
+    
     const toggleLinkedin = () => setTooltipLinkedin(!tooltipLinkedin);
     const toggleGitHub = () => setTooltipGitHub(!tooltipGitHub);
     // const toggleInstagram = () => setTooltipInstagram(!tooltipInstagram);
@@ -31,7 +33,7 @@ const UserCard = (props) => {
             <Container>
                 <Row className="text-center">
                     <Col sm="12" md="6" className="user-card-image-wrapper">
-                        <img src={photo} className="user-card-image" alt="author"/>
+                        <LazyLoadImage src={photo} className="user-card-image" alt="author"/>
                     </Col>
                     <Col sm="12" md="6" className="user-card-info">
                         <TypedTitle />
